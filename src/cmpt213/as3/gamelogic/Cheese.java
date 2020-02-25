@@ -1,4 +1,4 @@
-package cmpt213.as2.gamelogic;
+package cmpt213.as3.gamelogic;
 
 public class Cheese {
     private int x;

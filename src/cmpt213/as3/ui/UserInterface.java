@@ -1,4 +1,4 @@
-package cmpt213.as2.ui;
+package cmpt213.as3.ui;
 
 public class UserInterface {
     public void drawMaze( char[][] maze ) {}
