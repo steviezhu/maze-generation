@@ -64,6 +64,10 @@ public class Main {
                 mouse.moveRight();
             }
 
+            cat1.moveRandomly(maze);
+            cat2.moveRandomly(maze);
+            cat3.moveRandomly(maze);
+
             maze.changeVisibilityBasedOnMouse(mouse.getX() ,mouse.getY());
             ui.drawMaze(maze.getMaze(), cat1, cat2, cat3, mouse, cheese);
         }

@@ -138,4 +138,13 @@ public class Maze {
             }
         }
     }
+
+    public boolean objectsCollide(int x, int y) {
+        if(maze[x][y] == 1 || maze[x][y] == 3) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }
