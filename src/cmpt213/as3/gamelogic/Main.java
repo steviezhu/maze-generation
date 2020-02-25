@@ -21,14 +21,14 @@ public class Main {
 
         maze.changeVisibilityBasedOnMouse(mouse.getX() ,mouse.getY());
         ui.drawMaze(maze.getMaze(), cat1, cat2, cat3, mouse, cheese);
+        ui.printCheeseCollected(mouse);
 
         Scanner scanner = new Scanner(System.in);
         char movement;
 
         //WHILE GAME IS RUNNING
-        while(mouse.cheeseCollected() != mouse.cheeseToWin()) {
-            System.out.println("Cheese collected: " + mouse.cheeseCollected() + " of " + mouse.cheeseToWin());
-            System.out.print("Enter your move [WASD?]: ");
+        while(true) {
+            ui.askMove();
             movement = scanner.next().charAt(0);
 
             //HANDLE NON-MOVEMENT INPUTS
@@ -44,34 +44,81 @@ public class Main {
                     ui.drawMaze(maze.getMaze(), cat1, cat2, cat3, mouse, cheese);
                 }
                 else{
-                    System.out.println("Invalid move. Please enter just A (left), S (down), D (right), or W (up).");
+                    ui.invalidMoveInput();
                 }
-                System.out.print("Enter your move [WASD?]: ");
+                ui.askMove();
                 movement = scanner.next().charAt(0);
             }
 
             //MOVEMENT INPUTS
             if (movement == 'w' || movement == 'W') {
-                mouse.moveUp();
+                if(maze.objectsCollide(mouse.getX(), mouse.getY() - 1)){
+                    ui.invalidMoveWall();
+                    continue;
+                }
+                else {
+                    mouse.moveUp();
+                }
             }
             else if (movement == 's' || movement == 'S') {
-                mouse.moveDown();
+                if (maze.objectsCollide(mouse.getX(), mouse.getY() + 1)) {
+                    ui.invalidMoveWall();
+                    continue;
+                }
+                else {
+                    mouse.moveDown();
+                }
             }
             else if (movement == 'a' || movement == 'A') {
-                mouse.moveLeft();
+                if (maze.objectsCollide(mouse.getX() - 1, mouse.getY())) {
+                    ui.invalidMoveWall();
+                    continue;
+                }
+                else {
+                    mouse.moveLeft();
+                }
             }
             else if (movement == 'd' || movement == 'D') {
-                mouse.moveRight();
+                if (maze.objectsCollide(mouse.getX() + 1, mouse.getY())) {
+                    ui.invalidMoveWall();
+                    continue;
+                }
+                else {
+                    mouse.moveRight();
+                }
+            }
+
+            if((mouse.getX() == cheese.getX()) && (mouse.getY() == cheese.getY())){
+                mouse.increaseCheeseCollected();
+                cheese = new Cheese(maze, mouse);
+            }
+
+            if(mouse.cheeseCollected() == mouse.cheeseToWin()){
+                ui.gameWin(maze, cat1, cat2, cat3, mouse, cheese);
+                break;
             }
 
             cat1.moveRandomly(maze);
+            if((mouse.getX() == cat1.getX()) && (mouse.getY() == cat1.getY())){
+                ui.gameOver(maze, cat1, cat2, cat3, mouse, cheese);
+                break;
+            }
+
             cat2.moveRandomly(maze);
+            if((mouse.getX() == cat2.getX()) && (mouse.getY() == cat2.getY())){
+                ui.gameOver(maze, cat1, cat2, cat3, mouse, cheese);
+                break;
+            }
+
             cat3.moveRandomly(maze);
+            if((mouse.getX() == cat3.getX()) && (mouse.getY() == cat3.getY())){
+                ui.gameOver(maze, cat1, cat2, cat3, mouse, cheese);
+                break;
+            }
 
             maze.changeVisibilityBasedOnMouse(mouse.getX() ,mouse.getY());
             ui.drawMaze(maze.getMaze(), cat1, cat2, cat3, mouse, cheese);
+            ui.printCheeseCollected(mouse);
         }
     }
-
-
 }
