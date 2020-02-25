@@ -1,0 +1,28 @@
+Praneer Shrestha : 301361473
+Steven (Qing) Zhu : 301359737
+
+CMPT 213
+Assignment 3
+
+
+mazeVisibilityBasedOnMouseLocation( mouse : Mouse Object ) : void
+
+This function converts dots (.) into either hashes (#) or spaces ( ) making the map visible based on
+user movement and their relative radius.
+In the maze, each square around the Mouse's (user's) coordinates will become visible.
+Initially when making the maze, walls will be coded as "a" and spaces will be coded as "b". If the mouse comes within range of these two characters, they will be turned into their respective hashes or spaces.
+When printing, if the character is "a" or "b", a dot (.) will be printed. Otherwise a hash or space will be printed.
+Our OOD supports this as we have a Mouse class containing its coordinates that can be compared to the
+maze. Since we are dynamically changing the maze (the char array), the drawMaze function in the
+UserInterface class is undisturbed and will print the maze correctly each time it is called.
+
+
+checkCollisions( obj a, obj b ) : boolean
+
+This function takes two objects as parameters and checks if the two of them overlap. This makes it so that we do not need a separate collision checker for every combination of two objects. 
+If a collision happens between a mouse and a wall, we re-ask for an input.
+If a collision happens between a mouse and a cat or cheese, the game will end or the cheese collected counter will increment by one respectively.
+It returns true if the two objects overlap and false if they do not.
+This is supported by our OOD as our main classes are objects participating in the game.
+Thus this collision handler can be quite generalized to handle error (e.g. user colliding with wall), 
+indicate the end of the game (user colliding with cheese or user colliding with cat), which modularizes our design.
