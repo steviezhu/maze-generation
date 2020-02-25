@@ -88,10 +88,14 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="1248" y="256" width="374" height="592" key="#com.intellij.ide.util.MemberChooser/0.27.1920.1053@0.27.1920.1053" timestamp="1582591218980" />
-    <state x="1193" y="439" width="494" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1582593060024">
+    <state x="1173" y="344" width="525" height="428" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1582593095603">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="1193" y="439" width="494" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.27.1920.1053@0.27.1920.1053" timestamp="1582593060024" />
+    <state x="1173" y="344" width="525" height="428" key="#com.intellij.ide.util.TreeClassChooserDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1582593095603" />
+    <state x="1193" y="439" width="494" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1582593099003">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="1193" y="439" width="494" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.27.1920.1053@0.27.1920.1053" timestamp="1582593099003" />
     <state x="1223" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1582590929402">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
