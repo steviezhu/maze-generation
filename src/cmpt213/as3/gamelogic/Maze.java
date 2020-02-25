@@ -4,7 +4,17 @@ import java.util.Arrays;
 import java.util.Collections;
 
 public class Maze {
-    private final int[][] maze = new int[20][15];
+    private int[][] maze = new int[20][15];
+
+    public Maze() {
+        this.initializeMaze();
+        this.generateMaze(1, 1);
+        this.handleRightWall();
+    }
+
+    public int[][] getMaze() {
+        return maze;
+    }
 
     //MAZE IS INITIATED TO AN OUTER WALL OF 1'S THEN 0'S BOXED BY 1'S
     public void initializeMaze(){
@@ -85,23 +95,4 @@ public class Maze {
         }
     }
 
-    public void printMaze(){
-        for(int j = 0; j < 15; j ++){
-            for(int i = 0; i < 20; i ++){
-                if(maze[i][j] == 1){
-                    System.out.print('#');
-                }
-                else if(maze[i][j] == '@'){
-                    System.out.print('@');
-                }
-                else if(maze[i][j] == '!'){
-                    System.out.print('!');
-                }
-                else{
-                    System.out.print(' ');
-                }
-            }
-            System.out.println();
-        }
-    }
 }
