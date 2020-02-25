@@ -10,11 +10,11 @@ public class Cheese {
         int tempMaze[][] = maze.getMaze();
 
         Random randomNumGenerator = new Random();
-        int x = randomNumGenerator.nextInt(19);
-        int y = randomNumGenerator.nextInt(14);
+        int x = randomNumGenerator.nextInt(18) + 1;
+        int y = randomNumGenerator.nextInt(13) + 1;
         while (tempMaze[x][y] == 1 || ( x == mouse.getX() && y == mouse.getY() ) ) {
-            x = randomNumGenerator.nextInt(19);
-            y = randomNumGenerator.nextInt(14);
+            x = randomNumGenerator.nextInt(18) + 1;
+            y = randomNumGenerator.nextInt(13) + 1;
         }
         this.x = x;
         this.y = y;

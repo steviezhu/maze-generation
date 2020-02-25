@@ -18,6 +18,8 @@ public class Main {
 
         UserInterface ui = new UserInterface();
         ui.displayInstructions();
+
+        maze.changeVisibilityBasedOnMouse(mouse.getX() ,mouse.getY());
         ui.drawMaze(maze.getMaze(), cat1, cat2, cat3, mouse, cheese);
 
         Scanner scanner = new Scanner(System.in);
@@ -38,7 +40,8 @@ public class Main {
                     mouse.setNumOfCheeseToWin(1);
                 }
                 else if (movement == 'm' || movement == 'M'){
-
+                    maze.makeAllVisible();
+                    ui.drawMaze(maze.getMaze(), cat1, cat2, cat3, mouse, cheese);
                 }
                 else{
                     System.out.println("Invalid move. Please enter just A (left), S (down), D (right), or W (up).");
@@ -61,6 +64,7 @@ public class Main {
                 mouse.moveRight();
             }
 
+            maze.changeVisibilityBasedOnMouse(mouse.getX() ,mouse.getY());
             ui.drawMaze(maze.getMaze(), cat1, cat2, cat3, mouse, cheese);
         }
     }

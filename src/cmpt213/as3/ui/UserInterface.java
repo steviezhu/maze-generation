@@ -9,10 +9,7 @@ public class UserInterface {
         System.out.println("Maze:");
         for(int j = 0; j < 15; j ++){
             for(int i = 0; i < 20; i ++){
-                if(maze[i][j] == 1){
-                    System.out.print('#');
-                }
-                else if(i == mouse.getX() && j == mouse.getY()){
+                if(i == mouse.getX() && j == mouse.getY()){
                     System.out.print('@');
                 }
                 else if( (i == cat1.getX() && j == cat1.getY())
@@ -24,8 +21,14 @@ public class UserInterface {
                 else if( i == cheese.getX() && j == cheese.getY() ) {
                     System.out.print('$');
                 }
-                else{
+                else if (maze[i][j] == 0 || maze[i][j] == 1){
+                    System.out.print('.');
+                }
+                else if (maze[i][j] == 2){
                     System.out.print(' ');
+                }
+                else if (maze[i][j] == 3){
+                    System.out.print('#');
                 }
             }
             System.out.println();
