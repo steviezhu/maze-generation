@@ -5,7 +5,7 @@ public class Mouse {
     private int y;
 
     private int numOfCheeseCollected;
-    private int numOfCheeseToWin;
+    private int numOfCheeseToWin = 5;
 
     public Mouse(int x, int y) {
         this.x = x;
@@ -20,19 +20,35 @@ public class Mouse {
         return y;
     }
 
-    private void moveUp() {}
+    public void moveUp() {
+        this.y = this.y - 1;
+    }
 
-    private void moveLeft() {}
+    public void moveLeft() {
+        this.x = this.x - 1;
+    }
 
-    private void moveRight() {}
+    public void moveRight() {
+        this.x = this.x + 1;
+    }
 
-    private void moveDown() {}
+    public void moveDown() {
+        this.y = this.y + 1;
+    }
 
-    public void cheeseCollected() {
+    public void increaseCheeseCollected() {
         this.numOfCheeseCollected++;
     }
 
     public void setNumOfCheeseToWin(int numOfCheeseToWin) {
         this.numOfCheeseToWin = numOfCheeseToWin;
+    }
+
+    public int cheeseToWin(){
+        return this.numOfCheeseToWin;
+    }
+
+    public int cheeseCollected(){
+        return this.numOfCheeseCollected;
     }
 }
