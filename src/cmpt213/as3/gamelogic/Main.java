@@ -50,7 +50,7 @@ public class Main {
                 movement = scanner.next().charAt(0);
             }
 
-            //MOVEMENT INPUTS
+            //MOVEMENT INPUTS, CHECKS FOR COLLISION WITH WALLS
             if (movement == 'w' || movement == 'W') {
                 if(maze.objectsCollide(mouse.getX(), mouse.getY() - 1)){
                     ui.invalidMoveWall();
@@ -88,34 +88,50 @@ public class Main {
                 }
             }
 
+            //CHEESE COLLECTED
             if((mouse.getX() == cheese.getX()) && (mouse.getY() == cheese.getY())){
                 mouse.increaseCheeseCollected();
                 cheese = new Cheese(maze, mouse);
             }
 
-            if(mouse.cheeseCollected() == mouse.cheeseToWin()){
-                ui.gameWin(maze, cat1, cat2, cat3, mouse, cheese);
+            //GAME OVER - MOVING INTO CELL CURRENTLY WITH CAT
+            if((mouse.getX() == cat1.getX()) && (mouse.getY() == cat1.getY())){
+                ui.gameOver(maze, cat1, cat2, cat3, mouse, cheese);
+                break;
+            }
+            if((mouse.getX() == cat2.getX()) && (mouse.getY() == cat2.getY())){
+                ui.gameOver(maze, cat1, cat2, cat3, mouse, cheese);
+                break;
+            }
+            if((mouse.getX() == cat3.getX()) && (mouse.getY() == cat3.getY())){
+                ui.gameOver(maze, cat1, cat2, cat3, mouse, cheese);
                 break;
             }
 
+            //GAME OVER - MOVING INTO A CELL SIMULTANEOUSLY WITH CAT
             cat1.moveRandomly(maze);
             if((mouse.getX() == cat1.getX()) && (mouse.getY() == cat1.getY())){
                 ui.gameOver(maze, cat1, cat2, cat3, mouse, cheese);
                 break;
             }
-
             cat2.moveRandomly(maze);
             if((mouse.getX() == cat2.getX()) && (mouse.getY() == cat2.getY())){
                 ui.gameOver(maze, cat1, cat2, cat3, mouse, cheese);
                 break;
             }
-
             cat3.moveRandomly(maze);
             if((mouse.getX() == cat3.getX()) && (mouse.getY() == cat3.getY())){
                 ui.gameOver(maze, cat1, cat2, cat3, mouse, cheese);
                 break;
             }
 
+            //GAME WIN, CHECKED AFTER GAME OVERS
+            if(mouse.cheeseCollected() == mouse.cheeseToWin()){
+                ui.gameWin(maze, cat1, cat2, cat3, mouse, cheese);
+                break;
+            }
+
+            //UPDATE VISIBILITY BASED ON MOUSE, THEN REDRAW MAZE AND CHEESE
             maze.changeVisibilityBasedOnMouse(mouse.getX() ,mouse.getY());
             ui.drawMaze(maze.getMaze(), cat1, cat2, cat3, mouse, cheese);
             ui.printCheeseCollected(mouse);
