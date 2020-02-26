@@ -11,6 +11,11 @@ public class Cat {
     private int y;
     private int lastMove = -1;
 
+    private int UP = 0;
+    private int DOWN = 2;
+    private int RIGHT = 1;
+    private int LEFT = 3;
+
     public Cat(int x, int y) {
         this.x = x;
         this.y = y;
@@ -39,7 +44,7 @@ public class Cat {
         int dice = -1;
         while (collisionFlag) {
             dice = randomNumGenerator.nextInt(4);
-            if (dice == 0 && (2 != this.lastMove || blockedDirections == 3)) {
+            if (dice == UP && (DOWN != this.lastMove || blockedDirections == 3)) {
                 if (!maze.objectsCollide(this.x, this.y+1)) {
                     this.y = this.y+1;
                     collisionFlag = false;
@@ -48,7 +53,7 @@ public class Cat {
                     blockedDirections++;
                 }
             }
-            else if (dice == 1 && (3 != this.lastMove || blockedDirections == 3)) {
+            else if (dice == RIGHT && (LEFT != this.lastMove || blockedDirections == 3)) {
                 if (!maze.objectsCollide(this.x+1, this.y)) {
                     this.x = this.x+1;
                     collisionFlag = false;
@@ -57,7 +62,7 @@ public class Cat {
                     blockedDirections++;
                 }
             }
-            else if (dice == 2 && (0 != this.lastMove || blockedDirections == 3)) {
+            else if (dice == DOWN && (UP != this.lastMove || blockedDirections == 3)) {
                 if (!maze.objectsCollide(this.x, this.y-1)) {
                     this.y = this.y-1;
                     collisionFlag = false;
@@ -66,7 +71,7 @@ public class Cat {
                     blockedDirections++;
                 }
             }
-            else if (dice == 3 && (1 != this.lastMove || blockedDirections == 3)){
+            else if (dice == LEFT && (RIGHT != this.lastMove || blockedDirections == 3)){
                 if (!maze.objectsCollide(this.x-1, this.y)) {
                     this.x = this.x-1;
                     collisionFlag = false;

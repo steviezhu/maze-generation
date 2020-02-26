@@ -1,6 +1,12 @@
 <component name="ProjectDictionaryState">
   <dictionary name="steve">
     <words>
+      <w>notvisiblespace</w>
+      <w>notvisiblewall</w>
+      <w>startingx</w>
+      <w>startingy</w>
+      <w>visiblespace</w>
+      <w>visiblewall</w>
       <w>wasd</w>
     </words>
   </dictionary>

@@ -9,12 +9,17 @@ import cmpt213.as3.ui.UserInterface;
 import java.util.Scanner;
 
 public class Main {
+    final static int CAT1STARTINGX = 18;
+    final static int CAT1STARTINGY = 1;
+    final static int CAT2STARTINGX = 1;
+    final static int CAT2STARTINGY = 13;
+    final static int CAT3STARTINGX = 18;
+    final static int CAT3STARTINGY = 13;
 
     public static void main(String[] args) {
-
-        Cat cat1 = new Cat(18, 1);
-        Cat cat2 = new Cat(1, 13);
-        Cat cat3 = new Cat(18, 13);
+        Cat cat1 = new Cat(CAT1STARTINGX, CAT1STARTINGY);
+        Cat cat2 = new Cat(CAT2STARTINGX, CAT2STARTINGY);
+        Cat cat3 = new Cat(CAT3STARTINGX, CAT3STARTINGY);
         Mouse mouse = new Mouse(1, 1);
         Maze maze = new Maze();
         Cheese cheese = new Cheese(maze, mouse);

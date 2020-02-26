@@ -1,5 +1,6 @@
 /**
  * Generates the maze and handles visibility and collisions within the maze
+ * The maze generation algorithm used is the Recursive Back-tracker
  */
 
 package cmpt213.as3.gamelogic;
@@ -9,6 +10,11 @@ import java.util.Collections;
 
 public class Maze {
     private int[][] maze = new int[20][15];
+
+    final int NOTVISIBLESPACE = 0;
+    final int NOTVISIBLEWALL = 1;
+    final int VISIBLESPACE = 2;
+    final int VISIBLEWALL = 3;
 
     public Maze() {
         this.initializeMaze();
@@ -27,16 +33,16 @@ public class Maze {
         for(int i = 0; i < 20; i ++){
             for(int j = 0; j < 15; j ++){
                 if((i % 2 == 1) && (j % 2 == 1)){
-                    maze[i][j] = 0;
+                    maze[i][j] = NOTVISIBLESPACE;
                 }
                 else{
-                    maze[i][j] = 1;
+                    maze[i][j] = NOTVISIBLEWALL;
                 }
             }
         }
 
         for(int i = 0; i < 15; i ++){
-            maze[19][i] = 1;
+            maze[19][i] = NOTVISIBLEWALL;
         }
     }
 
@@ -85,9 +91,9 @@ public class Maze {
             }
 
             //CHECK WITHIN BOUNDS OF MAZE AND NEW COORDINATES ARE UNVISITED
-            if((newX >= 0 && newX < 20) && (newY >= 0 && newY < 15) && (maze[newX][newY] == 0)){
-                maze[x][y] = 2;
-                maze[carveX][carveY] = 2;
+            if((newX >= 0 && newX < 20) && (newY >= 0 && newY < 15) && (maze[newX][newY] == NOTVISIBLESPACE)){
+                maze[x][y] = VISIBLESPACE;
+                maze[carveX][carveY] = VISIBLESPACE;
                 generateMaze(newX, newY);
             }
         }
@@ -97,7 +103,7 @@ public class Maze {
     public void handleRightWall(){
         for(int i = 0; i < 15; i ++){
             if(i % 2 == 1 ){
-                maze[18][i] = 2;
+                maze[18][i] = VISIBLESPACE;
             }
         }
     }
@@ -106,27 +112,27 @@ public class Maze {
         //SET ALL TO NOT VISIBLE
         for(int i = 0; i < 20; i ++){
             for(int j = 0; j < 15; j ++){
-                if(maze[i][j] == 2){
-                    maze[i][j] = 0;
+                if(maze[i][j] == VISIBLESPACE){
+                    maze[i][j] = NOTVISIBLESPACE;
                 }
             }
         }
 
         //SET OUTER WALL TO VISIBLE
         for(int i = 0; i < 20; i ++){
-            maze[i][0] = 3;
-            maze[i][14] = 3;
+            maze[i][0] = VISIBLEWALL;
+            maze[i][14] = VISIBLEWALL;
         }
         for(int i = 0; i < 15; i ++){
-            maze[0][i] = 3;
-            maze[19][i] = 3;
+            maze[0][i] = VISIBLEWALL;
+            maze[19][i] = VISIBLEWALL;
         }
     }
 
     public void changeVisibilityBasedOnMouse(int mouseX, int mouseY){
         for(int i = -1; i <= 1; i ++){
             for(int j = -1; j <= 1; j ++){
-                if(maze[mouseX + i][mouseY + j] == 0 || maze[mouseX + i][mouseY + j] == 1){
+                if(maze[mouseX + i][mouseY + j] == NOTVISIBLESPACE || maze[mouseX + i][mouseY + j] == NOTVISIBLEWALL){
                     maze[mouseX + i][mouseY + j] = maze[mouseX + i][mouseY + j] + 2;
                 }
             }
@@ -136,7 +142,7 @@ public class Maze {
     public void makeAllVisible(){
         for(int i = 0; i < 20; i ++){
             for(int j = 0; j < 15; j ++){
-                if(maze[i][j] == 0 || maze[i][j] == 1){
+                if(maze[i][j] == NOTVISIBLESPACE || maze[i][j] == NOTVISIBLEWALL){
                     maze[i][j] = maze[i][j] + 2;
                 }
             }
@@ -144,7 +150,7 @@ public class Maze {
     }
 
     public boolean objectsCollide(int x, int y) {
-        if(maze[x][y] == 1 || maze[x][y] == 3) {
+        if(maze[x][y] == NOTVISIBLEWALL || maze[x][y] == VISIBLEWALL) {
             return true;
         }
         else {
