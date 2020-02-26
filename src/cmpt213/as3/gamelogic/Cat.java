@@ -5,6 +5,7 @@ import java.util.Random;
 public class Cat {
     private int x;
     private int y;
+    private int lastMove = -1;
 
     public Cat(int x, int y) {
         this.x = x;
@@ -28,36 +29,50 @@ public class Cat {
     }
 
     public void moveRandomly(Maze maze) {
-        int tempMaze[][] = maze.getMaze();
         boolean collisionFlag = true;
         Random randomNumGenerator = new Random();
+        int blockedDirections = 0;
+        int dice = -1;
         while (collisionFlag) {
-            int dice = randomNumGenerator.nextInt(4);
-            if(dice == 0) {
-                if(!maze.objectsCollide(this.x, this.y+1)) {
+            dice = randomNumGenerator.nextInt(4);
+            if (dice == 0 && (2 != this.lastMove || blockedDirections == 3)) {
+                if (!maze.objectsCollide(this.x, this.y+1)) {
                     this.y = this.y+1;
                     collisionFlag = false;
                 }
+                else if (blockedDirections < 3){
+                    blockedDirections++;
+                }
             }
-            else if (dice == 1) {
-                if(!maze.objectsCollide(this.x+1, this.y)) {
+            else if (dice == 1 && (3 != this.lastMove || blockedDirections == 3)) {
+                if (!maze.objectsCollide(this.x+1, this.y)) {
                     this.x = this.x+1;
                     collisionFlag = false;
                 }
+                else if (blockedDirections < 3){
+                    blockedDirections++;
+                }
             }
-            else if (dice == 2) {
-                if(!maze.objectsCollide(this.x, this.y-1)) {
+            else if (dice == 2 && (0 != this.lastMove || blockedDirections == 3)) {
+                if (!maze.objectsCollide(this.x, this.y-1)) {
                     this.y = this.y-1;
                     collisionFlag = false;
                 }
+                else if (blockedDirections < 3){
+                    blockedDirections++;
+                }
             }
-            else {
-                if(!maze.objectsCollide(this.x-1, this.y)) {
+            else if (dice == 3 && (1 != this.lastMove || blockedDirections == 3)){
+                if (!maze.objectsCollide(this.x-1, this.y)) {
                     this.x = this.x-1;
                     collisionFlag = false;
                 }
+                else if (blockedDirections < 3){
+                    blockedDirections++;
+                }
             }
         }
+        this.lastMove = dice;
     }
 
 

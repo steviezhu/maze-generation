@@ -2,7 +2,6 @@ package cmpt213.as3.gamelogic;
 
 import cmpt213.as3.ui.UserInterface;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
