@@ -1,3 +1,7 @@
+/**
+ * Prints to terminal and displays user interface
+ */
+
 package cmpt213.as3.ui;
 
 import cmpt213.as3.gamelogic.Cat;

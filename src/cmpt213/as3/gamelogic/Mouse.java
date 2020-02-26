@@ -1,3 +1,8 @@
+/**
+ * Holds coordinates of the Mouse and handles
+ * movement as well as cheese objects collected
+ */
+
 package cmpt213.as3.gamelogic;
 
 public class Mouse {

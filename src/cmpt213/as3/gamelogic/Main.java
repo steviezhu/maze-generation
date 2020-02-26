@@ -1,3 +1,7 @@
+/**
+ * Main class used to create game objects and run the game
+ */
+
 package cmpt213.as3.gamelogic;
 
 import cmpt213.as3.ui.UserInterface;

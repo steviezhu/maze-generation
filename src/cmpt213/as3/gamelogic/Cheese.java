@@ -1,3 +1,7 @@
+/**
+ * Generates and holds coordinates of Cheese
+ */
+
 package cmpt213.as3.gamelogic;
 
 import java.util.Random;

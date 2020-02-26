@@ -1,3 +1,7 @@
+/**
+ * Holds coordinates of Cat and handles random movement of the object
+ */
+
 package cmpt213.as3.gamelogic;
 
 import java.util.Random;

@@ -1,3 +1,7 @@
+/**
+ * Generates the maze and handles visibility and collisions within the maze
+ */
+
 package cmpt213.as3.gamelogic;
 
 import java.util.Arrays;
