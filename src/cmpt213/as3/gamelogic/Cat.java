@@ -41,6 +41,10 @@ public class Cat {
         boolean collisionFlag = true;
         Random randomNumGenerator = new Random();
         int blockedDirections = 0;
+        boolean leftBlocked = false;
+        boolean rightBlocked = false;
+        boolean upBlocked = false;
+        boolean downBlocked = false;
         int dice = -1;
         while (collisionFlag) {
             dice = randomNumGenerator.nextInt(4);
@@ -49,8 +53,9 @@ public class Cat {
                     this.y = this.y+1;
                     collisionFlag = false;
                 }
-                else if (blockedDirections < 3){
+                else if (!upBlocked){
                     blockedDirections++;
+                    upBlocked = true;
                 }
             }
             else if (dice == RIGHT && (LEFT != this.lastMove || blockedDirections == 3)) {
@@ -58,8 +63,9 @@ public class Cat {
                     this.x = this.x+1;
                     collisionFlag = false;
                 }
-                else if (blockedDirections < 3){
+                else if (!rightBlocked){
                     blockedDirections++;
+                    rightBlocked = true;
                 }
             }
             else if (dice == DOWN && (UP != this.lastMove || blockedDirections == 3)) {
@@ -67,8 +73,9 @@ public class Cat {
                     this.y = this.y-1;
                     collisionFlag = false;
                 }
-                else if (blockedDirections < 3){
+                else if (!downBlocked){
                     blockedDirections++;
+                    downBlocked = true;
                 }
             }
             else if (dice == LEFT && (RIGHT != this.lastMove || blockedDirections == 3)){
@@ -76,8 +83,9 @@ public class Cat {
                     this.x = this.x-1;
                     collisionFlag = false;
                 }
-                else if (blockedDirections < 3){
+                else if (!leftBlocked){
                     blockedDirections++;
+                    leftBlocked = true;
                 }
             }
         }
