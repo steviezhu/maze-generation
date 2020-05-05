@@ -17,6 +17,7 @@ public class Maze {
     final int VISIBLEWALL = 3;
 
     public Maze() {
+        System.out.println("MAZE GENERATION ALGORITHM: Recursive Backtracker");
         this.initializeMaze();
         this.generateMaze(7, 7);
         this.handleRightWall();

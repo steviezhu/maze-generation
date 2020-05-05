@@ -2,14 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fdd8297d-f27a-4bd4-9d7e-643ec4470ad6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/steve.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/steve.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UML/CLASSDIAGRAM.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/docs/CLASSDIAGRAM.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UML/CRC.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/docs/CRC.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UML/OODEXPLAINED.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/docs/OODEXPLAINED.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UML/assign3design.zip" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assign3design.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assignment3.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assignment3MarkingGuide.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assign3.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/CLASSDIAGRAM.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/CRC.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/OODEXPLAINED.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assign3design.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/losing game.pdf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/3_jar/3.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/3_jar/3.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/3/cmpt213/as3/gamelogic/Cat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3/cmpt213/as3/gamelogic/Cat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/as3/gamelogic/Cat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/as3/gamelogic/Cat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/3/cmpt213/as3/gamelogic/Maze.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/3/cmpt213/as3/gamelogic/Maze.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/as3/gamelogic/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/as3/gamelogic/Maze.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user input.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/winning game.pdf" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +56,7 @@
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -74,6 +82,18 @@
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -128,35 +148,41 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="1193" y="439" width="494" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.27.1920.1053@0.27.1920.1053" timestamp="1582593099003" />
-    <state x="978" y="221" width="424" height="484" key="FileChooserDialogImpl" timestamp="1582759042684">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="1223" y="279" width="424" height="484" key="FileChooserDialogImpl" timestamp="1588652100774">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="978" y="221" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1582759042684" />
+    <state x="1223" y="279" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1588652100774" />
     <state x="1223" y="310" width="424" height="484" key="FileChooserDialogImpl/0.27.1920.1053@0.27.1920.1053" timestamp="1582590929402" />
-    <state width="1493" height="544" key="GridCell.Tab.0.bottom" timestamp="1582758823243">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="916" height="352" key="GridCell.Tab.0.bottom" timestamp="1588651845797">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1493" height="544" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1582758823243" />
+    <state width="916" height="352" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588651845797" />
     <state width="914" height="375" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1582616437039" />
-    <state width="1493" height="544" key="GridCell.Tab.0.center" timestamp="1582758823242">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="916" height="352" key="GridCell.Tab.0.center" timestamp="1588651845797">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1493" height="544" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1582758823242" />
+    <state width="916" height="352" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588651845797" />
     <state width="914" height="375" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1582616437038" />
-    <state width="1493" height="544" key="GridCell.Tab.0.left" timestamp="1582758823242">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="916" height="352" key="GridCell.Tab.0.left" timestamp="1588651845797">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1493" height="544" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1582758823242" />
+    <state width="916" height="352" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588651845797" />
     <state width="914" height="375" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1582616437037" />
-    <state width="1493" height="544" key="GridCell.Tab.0.right" timestamp="1582758823243">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="916" height="352" key="GridCell.Tab.0.right" timestamp="1588651845797">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1493" height="544" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1582758823243" />
+    <state width="916" height="352" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588651845797" />
     <state width="914" height="375" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1582616437038" />
-    <state x="249" y="0" key="SettingsEditor" timestamp="1582679641724">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="892" y="131" key="SettingsEditor" timestamp="1588652468283">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1582679641724" />
+    <state x="892" y="131" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1588652468283" />
     <state x="1091" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1582614134952">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
@@ -165,6 +191,10 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="1208" y="472" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.1920.1053@0.27.1920.1053" timestamp="1582615371675" />
+    <state x="685" y="141" key="new project wizard" timestamp="1588652086606">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="685" y="141" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1588652086606" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1582674663722">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
