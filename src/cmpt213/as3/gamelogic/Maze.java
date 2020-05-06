@@ -7,9 +7,11 @@ package cmpt213.as3.gamelogic;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.LinkedList;
+import java.util.Random;
 
 public class Maze {
-    private int[][] maze = new int[20][15];
+    private int[][] maze = new int[19][15];
 
     final int NOTVISIBLESPACE = 0;
     final int NOTVISIBLEWALL = 1;
@@ -18,9 +20,7 @@ public class Maze {
 
     public Maze() {
         System.out.println("MAZE GENERATION ALGORITHM: Recursive Backtracker");
-        this.initializeMaze();
-        this.generateMaze(7, 7);
-        this.handleRightWall();
+        this.generateMazePrim(7, 7);
         this.hideInnerMaze();
     }
 
@@ -30,24 +30,23 @@ public class Maze {
 
     //VISIBILITY BY NUMBER: 0 = NOT VISIBLE SPACE, 1 = NOT VISIBLE WALL, 2 = VISIBLE SPACE, 3 = VISIBLE WALL
     //MAZE IS INITIATED TO AN OUTER WALL OF 1'S THEN 0'S BOXED BY 1'S
-    public void initializeMaze(){
-        for(int i = 0; i < 20; i ++){
-            for(int j = 0; j < 15; j ++){
-                if((i % 2 == 1) && (j % 2 == 1)){
-                    maze[i][j] = NOTVISIBLESPACE;
+    public void generateMazeRecursive(int x, int y, boolean firstIteration){
+        if(firstIteration) {
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 15; j++) {
+                    if ((i % 2 == 1) && (j % 2 == 1)) {
+                        maze[i][j] = NOTVISIBLESPACE;
+                    } else {
+                        maze[i][j] = NOTVISIBLEWALL;
+                    }
                 }
-                else{
-                    maze[i][j] = NOTVISIBLEWALL;
-                }
+            }
+
+            for (int i = 0; i < 15; i++) {
+                maze[18][i] = NOTVISIBLEWALL;
             }
         }
 
-        for(int i = 0; i < 15; i ++){
-            maze[19][i] = NOTVISIBLEWALL;
-        }
-    }
-
-    public void generateMaze(int x, int y){
         Integer[] directions = {0,1,2,3};
 
         //SHUFFLE DIRECTIONS
@@ -92,26 +91,53 @@ public class Maze {
             }
 
             //CHECK WITHIN BOUNDS OF MAZE AND NEW COORDINATES ARE UNVISITED
-            if((newX >= 0 && newX < 20) && (newY >= 0 && newY < 15) && (maze[newX][newY] == NOTVISIBLESPACE)){
+            if((newX >= 0 && newX < 19) && (newY >= 0 && newY < 15) && (maze[newX][newY] == NOTVISIBLESPACE)){
                 maze[x][y] = VISIBLESPACE;
                 maze[carveX][carveY] = VISIBLESPACE;
-                generateMaze(newX, newY);
+                generateMazeRecursive(newX, newY, false);
             }
         }
     }
 
-    //REMOVE 2X2 WALL CHUNKS FROM RIGHT WALL
-    public void handleRightWall(){
-        for(int i = 0; i < 15; i ++){
-            if(i % 2 == 1 ){
-                maze[18][i] = VISIBLESPACE;
+    public void generateMazePrim(int x, int y){
+        for(int i = 0; i < 19; i++){
+            for(int j = 0; j < 15; j++){
+                maze[i][j] = NOTVISIBLEWALL;
+            }
+        }
+
+        LinkedList<int[]> frontiers = new LinkedList<>();
+        Random random = new Random();
+
+        frontiers.add(new int[]{x,y,x,y});
+
+        while(!frontiers.isEmpty()){
+            int[] removed = frontiers.remove(random.nextInt(frontiers.size()));
+            x = removed[2];
+            y = removed[3];
+            if(maze[x][y] == NOTVISIBLEWALL || maze[x][y] == VISIBLEWALL){
+                maze[removed[0]][removed[1]] = VISIBLESPACE;
+                maze[x][y] = VISIBLESPACE;
+
+                if ( x > 1 && (maze[x-2][y] == NOTVISIBLEWALL)) {
+                    frontiers.add(new int[]{x - 1, y, x - 2, y});
+                }
+                if ( y > 1 && (maze[x][y-2] == NOTVISIBLEWALL)) {
+                    frontiers.add(new int[]{x, y - 1, x, y - 2});
+                }
+                if ( x < 17 && (maze[x+2][y] == NOTVISIBLEWALL)) {
+                    frontiers.add(new int[]{x + 1, y, x + 2, y});
+                }
+                if ( y < 13 && (maze[x][y+2] == NOTVISIBLEWALL)) {
+                    frontiers.add(new int[]{x, y + 1, x, y + 2});
+                }
             }
         }
     }
 
     public void hideInnerMaze(){
         //SET ALL TO NOT VISIBLE
-        for(int i = 0; i < 20; i ++){
+        for(int i = 0; i < 19; i ++){
             for(int j = 0; j < 15; j ++){
                 if(maze[i][j] == VISIBLESPACE){
                     maze[i][j] = NOTVISIBLESPACE;
@@ -120,13 +146,13 @@ public class Maze {
         }
 
         //SET OUTER WALL TO VISIBLE
-        for(int i = 0; i < 20; i ++){
+        for(int i = 0; i < 19; i ++){
             maze[i][0] = VISIBLEWALL;
             maze[i][14] = VISIBLEWALL;
         }
         for(int i = 0; i < 15; i ++){
             maze[0][i] = VISIBLEWALL;
-            maze[19][i] = VISIBLEWALL;
+            maze[18][i] = VISIBLEWALL;
         }
     }
 
@@ -141,7 +167,7 @@ public class Maze {
     }
 
     public void makeAllVisible(){
-        for(int i = 0; i < 20; i ++){
+        for(int i = 0; i < 19; i ++){
             for(int j = 0; j < 15; j ++){
                 if(maze[i][j] == NOTVISIBLESPACE || maze[i][j] == NOTVISIBLEWALL){
                     maze[i][j] = maze[i][j] + 2;

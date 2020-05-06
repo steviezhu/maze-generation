@@ -13,7 +13,7 @@ public class UserInterface {
     public void drawMaze(int[][] maze, Cat cat1, Cat cat2, Cat cat3, Mouse mouse, Cheese cheese) {
         System.out.println("Maze:");
         for(int j = 0; j < 15; j ++){
-            for(int i = 0; i < 20; i ++){
+            for(int i = 0; i < 19; i ++){
                 if(maze[i][j] == 'X'){
                     System.out.print('X');
                 }

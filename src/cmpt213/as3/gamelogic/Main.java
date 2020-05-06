@@ -9,11 +9,11 @@ import cmpt213.as3.ui.UserInterface;
 import java.util.Scanner;
 
 public class Main {
-    final static int CAT1STARTINGX = 18;
+    final static int CAT1STARTINGX = 17;
     final static int CAT1STARTINGY = 1;
     final static int CAT2STARTINGX = 1;
     final static int CAT2STARTINGY = 13;
-    final static int CAT3STARTINGX = 18;
+    final static int CAT3STARTINGX = 17;
     final static int CAT3STARTINGY = 13;
 
     public static void main(String[] args) {
