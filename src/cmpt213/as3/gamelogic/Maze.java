@@ -5,10 +5,7 @@
 
 package cmpt213.as3.gamelogic;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.Random;
+import java.util.*;
 
 public class Maze {
     private int[][] maze = new int[19][15];
@@ -19,8 +16,19 @@ public class Maze {
     final int VISIBLEWALL = 3;
 
     public Maze() {
-        System.out.println("MAZE GENERATION ALGORITHM: Recursive Backtracker");
-        this.generateMazePrim(7, 7);
+        System.out.println("Which maze generation algorithm would you like to use?");
+        System.out.println("1 - Recursive backtracker");
+        System.out.println("2 - Prim's Algorithm");
+        Scanner scanner = new Scanner(System.in);
+        int choice = scanner.nextInt();
+        if(choice == 1){
+            System.out.println("MAZE GENERATION ALGORITHM: Recursive Backtracker");
+            this.generateMazeRecursive(7, 7, true);
+        }
+        if(choice == 2){
+            System.out.println("MAZE GENERATION ALGORITHM: Prim's Algorithm");
+            this.generateMazePrim(7, 7);
+        }
         this.hideInnerMaze();
     }
 
